@@ -37,7 +37,9 @@ public class Main {
 		
 		//создаем компаратор для сортировки по цене тарифа
         st=ar.stream();
-        List<MTS>ll=st.sorted((o, o1) -> o.getPrice().compareTo(o1.getPrice())).collect(Collectors.toList());
+        List<MTS>ll=st.sorted((o, o1) -> o.getPrice().compareTo(o1.getPrice()))
+        		      .collect(Collectors.toList());
+        
         System.out.println(ll);
         	
         
