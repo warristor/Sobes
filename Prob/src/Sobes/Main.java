@@ -9,14 +9,14 @@ import java.util.stream.Stream;
 public class Main {
 
 	// метод возвращает тариф по заданному диапазону параметров
-    static String chooseTarifPrice(List<MTS> a, double min, double max) {  
+    static MTS chooseTarifPrice(List<MTS> a, double min, double max) {  
 
     	    	
 		    for (MTS m : a) {
 		       	if (max >= m.getPrice() && min <= m.getPrice())
-		  	       	return "Тариф: "+m.getTarif();
+		  	       	return m;
      	    }
-        return "Не найдено";
+        return a.get(0);
 	}
    
 
