@@ -9,13 +9,14 @@ import java.util.stream.Stream;
 public class Main {
 
 	// метод возвращает тариф по заданному диапазону параметров
-    static Double chooseTarifPrice(List<MTS> a, double min, double max) {  
+    static String chooseTarifPrice(List<MTS> a, double min, double max) {  
 
+    	    	
 		    for (MTS m : a) {
 		       	if (max >= m.getPrice() && min <= m.getPrice())
-		  	       	return m.getPrice();
+		  	       	return "Тариф: "+m.getTarif();
      	    }
-        return 0.0;
+        return "Не найдено";
 	}
    
 
@@ -30,7 +31,7 @@ public class Main {
 
    // подсчитали общее количество клиентов
    Stream<MTS> st=ar.stream();
-   System.out.println(st.mapToInt(MTS::getClient).sum());
+   System.out.println("Общее количество клиентов: "+st.mapToInt(MTS::getClient).sum());
 		
 		
    //создаем компаратор для сортировки по цене тарифа
