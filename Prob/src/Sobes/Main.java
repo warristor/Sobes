@@ -1,13 +1,14 @@
 package Sobes;
 
 import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 
 public class Main {
-
+		
+	
 	// метод возвращает тариф по заданному диапазону параметров
     static MTS chooseTarifPrice(List<MTS> a, double min, double max) {  
 
@@ -16,27 +17,28 @@ public class Main {
 		       	if (max >= m.getPrice() && min <= m.getPrice())
 		  	       	return m;
      	    }
-        return a.get(0);
+        return   Collections.min(a,((b,c)->b.getPrice().compareTo(c.getPrice())));
+        		//a.stream().min((b,c)->b.getPrice().compareTo(c.getPrice())).get();
 	}
    
-
+    
  public static void main(String[] args) {
 		
-		
+	 
    //Создал список тарифов компании
    List<MTS> ar = new ArrayList<>();            
    ar.add(new Start(5, "Start", 23));
    ar.add(new Bezlimit(11, "Bezlimit", 17));
-							
+			  
 
    // подсчитали общее количество клиентов
-   Stream<MTS> st=ar.stream();
-   System.out.println("Общее количество клиентов: "+st.mapToInt(MTS::getClient).sum());
+   System.out.println("Общее количество клиентов: "+ar.stream()
+                                                      .mapToInt(MTS::getClient).sum());
 		
 		
    //создаем компаратор для сортировки по цене тарифа
-   st=ar.stream();
-   List<MTS>ll=st.sorted((o, o1) -> o.getPrice().compareTo(o1.getPrice())).collect(Collectors.toList());
+   List<MTS>ll=ar.stream().sorted((o, o1) -> o.getPrice().compareTo(o1.getPrice()))
+		                  .collect(Collectors.toList());
         
    System.out.println(ll);
         	
