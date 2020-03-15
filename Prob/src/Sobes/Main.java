@@ -47,7 +47,7 @@ public class Main {
 		                  .collect(Collectors.toList());
         
    System.out.println(ll);
-        	
+       	
         
    // выбирает тариф по заданному диапазону
    
