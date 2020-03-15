@@ -3,6 +3,7 @@ package Sobes;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 
@@ -10,20 +11,29 @@ public class Main {
 		
 	
 	// метод возвращает тариф по заданному диапазону параметров
-    static MTS chooseTarifPrice(List<MTS> a, double min, double max) {  
+    
+	
+	
+	static Optional<MTS> chooseTarifPrice(List<MTS> a, double min, double max) throws Exception {  
 
     	    	
 		    for (MTS m : a) {
-		       	if (max >= m.getPrice() && min <= m.getPrice())
-		  	       	return m;
+		       	if (max >= m.getPrice() && min >= m.getPrice())
+		  	       	return Optional.of(m);
      	    }
-        return   Collections.min(a,((b,c)->b.getPrice().compareTo(c.getPrice())));
+        return null;
+        	    //Collections.min(a,((b,c)->b.getPrice().compareTo(c.getPrice())));
         		//a.stream().min((b,c)->b.getPrice().compareTo(c.getPrice())).get();
-	}
-   
-    
- public static void main(String[] args) {
+     }
+	
+			
+	    
+ public static void main(String[] args) throws Exception  {
 		
+	 
+	 Exception e=new Exception("123");
+	 System.out.println(e);
+	 
 	 
    //Создал список тарифов компании
    List<MTS> ar = new ArrayList<>();            
@@ -44,7 +54,8 @@ public class Main {
         	
         
    // выбирает тариф по заданному диапазону
-   System.out.println(chooseTarifPrice(ll, 20, 30));
+   
+		System.out.println(chooseTarifPrice(ll, 17, 22));
 
  }
 
