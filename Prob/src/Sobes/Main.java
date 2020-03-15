@@ -21,7 +21,7 @@ public class Main {
 		       	if (max >= m.getPrice() && min >= m.getPrice())
 		  	       	return Optional.of(m);
      	    }
-        return null;
+        return Optional.empty();
         	    //Collections.min(a,((b,c)->b.getPrice().compareTo(c.getPrice())));
         		//a.stream().min((b,c)->b.getPrice().compareTo(c.getPrice())).get();
      }
@@ -29,11 +29,7 @@ public class Main {
 			
 	    
  public static void main(String[] args) throws Exception  {
-		
-	 
-	 Exception e=new Exception("123");
-	 System.out.println(e);
-	 
+		 
 	 
    //Создал список тарифов компании
    List<MTS> ar = new ArrayList<>();            
@@ -55,7 +51,7 @@ public class Main {
         
    // выбирает тариф по заданному диапазону
    
-		System.out.println(chooseTarifPrice(ll, 17, 22));
+     System.out.println(chooseTarifPrice(ll, 16, 22));
 
  }
 
