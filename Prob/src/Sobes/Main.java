@@ -27,7 +27,7 @@ public class Main {
 	System.out.println("Общее количество клиентов: " + sum);
 
 //		Optional<Integer> sum = listMTS.stream().map(MTS::getClient)
-//                .reduce((intClient1, intClient2) -> intClient1 + intClient2);
+///                .reduce((intClient1, intClient2) -> intClient1 + intClient2);
 
 	// сортируем тарифы по цене
 	listMTS.sort((obj, obj1) -> obj.getPrice().compareTo(obj1.getPrice()));
