@@ -2,15 +2,15 @@ package Sobes;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class Main {
 
     // метод возвращает тариф по заданному диапазону параметров
-    static Optional<MTS> chooseTarifPrice(List<MTS> listMTS, double min, double max) {
+    static List<MTS> chooseTarifPrice(List<MTS> listMTS, double min, double max) {
 
 	return listMTS.stream().filter(obj -> max >= obj.getPrice() && min >= obj.getPrice())
-		               .findAny();
+		               .collect(Collectors.toList());
     }
 
     public static void main(String[] args) {
