@@ -11,7 +11,7 @@ public class Main {
 	static Optional<MTS> chooseTarifPrice(List<MTS> listMTS, double min, double max) {
 
 		return listMTS.stream().filter(obj -> max >= obj.getPrice() && min >= obj.getPrice())
-			.findAny();
+			               .findAny();
 	}
 
 	public static void main(String[] args) {
@@ -23,7 +23,7 @@ public class Main {
 
 		// подсчитали общее количество клиентов
 		Optional<Integer> sum = listMTS.stream().map(MTS::getClient)
-				.reduce((intClient1, intClient2) -> intClient1 + intClient2);
+				                        .reduce((intClient1, intClient2) -> intClient1 + intClient2);
 
 		// выводим на консоль сумму клиентов
 		System.out.println("Общее количество клиентов: " + sum);
@@ -33,7 +33,7 @@ public class Main {
 
 		// сортируем тарифы по цене
 		List<MTS> listSorted = listMTS.stream().sorted((obj, obj1) -> obj.getPrice().compareTo(obj1.getPrice()))
-				.collect(Collectors.toList());
+				                       .collect(Collectors.toList());
 
 		// выводим на консоль отсортированый список
 		System.out.println(listSorted);
